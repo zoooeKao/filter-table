@@ -1,10 +1,6 @@
 import {DataGrid} from '@mui/x-data-grid';
 import * as React from 'react';
 
-/** @param {Object} param0
- * @param {(import('../context').FilterType)[]} param0.items
- * @return {JSX.Element}
- */
 export const ItemsTable = ({items}) => {
   const columns = Object.keys(items[0]).map((headerName) => {
     let headerNameZh = '';
@@ -23,7 +19,7 @@ export const ItemsTable = ({items}) => {
         break;
     }
 
-    return {field: headerName, headerName: headerNameZh, width: 150};
+    return {field: headerName, headerName: headerNameZh, width: 120};
   });
 
   const rows = items.map((item, idx) => {
@@ -31,7 +27,7 @@ export const ItemsTable = ({items}) => {
   });
 
   return (
-    <div style={{height: '700px', width: '100%'}}>
+    <div style={{height: '650px', width: '100%'}}>
       <DataGrid
         rows={rows}
         columns={columns}

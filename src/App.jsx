@@ -17,22 +17,30 @@ export const App = () => {
 
   return (
     <Wrapper>
-      <div className='w-1/3 mb-3'>
+      <div className='w-4/5 lg:w-1/3 mb-3'>
         <Category />
         <Price />
         <InStock />
         <SubmitButton filterFn={(items) => setItemList(items)} />
       </div>
-      <div
-        className='w-1/3 lg:hidden'
-        data-desc='mobile'>
-        <ItemCard items={itemList} />
-      </div>
-      <div
-        className='w-1/3 hidden lg:block'
-        data-desc='desktop'>
-        <ItemsTable items={itemList} />
-      </div>
+      {itemList.length > 0 ? (
+        <div
+          className='w-4/5 lg:hidden'
+          data-desc='mobile'>
+          <ItemCard items={itemList} />
+        </div>
+      ) : (
+        <div>查無資料</div>
+      )}
+      {itemList.length > 0 ? (
+        <div
+          className='w-1/3 hidden lg:block'
+          data-desc='desktop'>
+          <ItemsTable items={itemList} />
+        </div>
+      ) : (
+        <div>查無資料</div>
+      )}
     </Wrapper>
   );
 };
