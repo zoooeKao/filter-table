@@ -1,0 +1,31 @@
+/* RWD vs AWD(依造裝置大小有特定版型) */
+/* Code Review: index.css 放全域的設定 、 html 會依 viewport 的高度佔滿 */
+html,
+body,
+#root {
+  height: 100dvh;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: black;
+  /* color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: inline-block;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
