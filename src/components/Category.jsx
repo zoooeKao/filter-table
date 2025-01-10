@@ -13,10 +13,10 @@ export const Category = () => {
   const {conditionsState, setConditionsState} = useFilterConditionsState();
 
   const handleChange = (event, value) => {
-    setConditionsState((pre) => {
-      pre.category = value;
-      return pre;
-    });
+    setConditionsState((pre) => ({
+      ...pre,
+      category: value,
+    }));
   };
 
   return (

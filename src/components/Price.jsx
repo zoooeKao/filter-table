@@ -13,17 +13,25 @@ export const Price = () => {
   const {conditionsState, setConditionsState} = useFilterConditionsState();
 
   const handleChangeMinPrice = (event) => {
-    setConditionsState((pre) => {
-      pre.price.minPrice = event.target.value;
-      return pre;
-    });
+    const newMinPrice = Number(event.target.value);
+    setConditionsState((pre) => ({
+      ...pre,
+      price: {
+        ...pre.price,
+        minPrice: newMinPrice,
+      },
+    }));
   };
 
   const handleChangeMaxPrice = (event) => {
-    setConditionsState((pre) => {
-      pre.price.maxPrice = event.target.value;
-      return pre;
-    });
+    const newMaxPrice = Number(event.target.value);
+    setConditionsState((pre) => ({
+      ...pre,
+      price: {
+        ...pre.price,
+        maxPrice: newMaxPrice,
+      },
+    }));
   };
 
   return (
@@ -33,6 +41,7 @@ export const Price = () => {
         label='Min-Price'
         type='number'
         onChange={handleChangeMinPrice}
+        value={conditionsState.price.minPrice}
         placeholder={String(findMinPrice)}
         slotProps={{
           inputLabel: {
@@ -45,6 +54,7 @@ export const Price = () => {
         label='Max-Price'
         type='number'
         onChange={handleChangeMaxPrice}
+        value={conditionsState.price.maxPrice}
         placeholder={String(findMaxPrice)}
         slotProps={{
           inputLabel: {

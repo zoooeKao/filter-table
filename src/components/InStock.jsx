@@ -10,11 +10,11 @@ import {useFilterConditionsState} from '../hook/useFilterConditions';
 export const InStock = () => {
   const {conditionsState, setConditionsState} = useFilterConditionsState();
 
-  const handleChange = (event) => {
-    setConditionsState((pre) => {
-      pre.inStock = event.target.checked;
-      return pre;
-    });
+  const handleChange = (event, value) => {
+    setConditionsState((pre) => ({
+      ...pre,
+      inStock: value,
+    }));
   };
 
   return (
